@@ -51,7 +51,6 @@ namespace WpfDbsMazani
 
         private void Smazat1_Click(object sender, RoutedEventArgs e)
         {
-            
             if (lsvFilamenty.ItemsSource != null)
             {
                 Filamenty filament = (Filamenty)lsvFilamenty.SelectedItem;
