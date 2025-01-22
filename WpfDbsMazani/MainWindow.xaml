@@ -1,0 +1,29 @@
+﻿<Window x:Class="WpfDbsMazani.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfDbsMazani"
+        mc:Ignorable="d"
+        Title="Filamenty" Height="450" Width="800" FontSize="20" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <Button x:Name="Smazat1" Content="Smazat" Click="Smazat1_Click"/>
+
+        </StackPanel>
+        <ListView x:Name="lsvFilamenty" Grid.Column="1" SelectionMode="Single">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Id" Width="300" DisplayMemberBinding="{Binding id}"/>
+                    <GridViewColumn Header="Název" Width="300" DisplayMemberBinding="{Binding nazev}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
+    </Grid>
+</Window>
