@@ -14,12 +14,12 @@ namespace WpfDbsMazani
         public Filamenty(int id, string nazev)
         {
             this.id = id;
-            this.nazev = nazev;
+            this.nazev = nazev.Trim();
         }
 
         public override string? ToString()
         {
-            return $"{nazev.Trim()} číslo {id}";
+            return $"{nazev} číslo {id}";
         }
     }
 }

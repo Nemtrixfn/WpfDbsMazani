@@ -100,5 +100,35 @@ namespace WpfDbsMazani
                 tBoxNazevEditovat.Text = filament.nazev;
             }
         }
+
+        private void btnEditovatFilament_Click(object sender, RoutedEventArgs e)
+        {
+            if (lsvFilamenty.SelectedItem != null)
+            {
+                if (tBoxNazevEditovat.Text != "")
+                {
+                    using (SqlCommand cmd = new SqlCommand("", conn))
+                    {
+                        Filamenty filament = (Filamenty)lsvFilamenty.SelectedItem;
+                        cmd.CommandText = ("update filamenty set nazev = @nazev where id = @id;");
+                        cmd.Parameters.AddWithValue("@nazev", tBoxNazevEditovat.Text);
+                        cmd.Parameters.AddWithValue("@id", filament.id);
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        conn.Close();
+                        ZobrazData();
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Zadejte nazev filamentu");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vyberte položku kterou chcete editovat");
+            }
+        }
     }
 }
