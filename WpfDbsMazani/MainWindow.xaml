@@ -14,13 +14,18 @@
         <StackPanel>
             <Button x:Name="Smazat1" Content="Smazat" Click="Smazat1_Click"/>
             <Separator Margin="0,10,0,0" Height="3"></Separator>
-            <Label Content="Název filamentu"/>
+            <Label Content="Vlož Filament" Foreground="Orange"/>
             <TextBox x:Name="tBoxNazev" TextWrapping="Wrap" Text="Fil" Width="auto" Margin="5"/>
-            <Button x:Name="btnVlozitFilament" Content="Vložit Filament" Click="btnVlozitFilament_Click"></Button> 
+            <Button x:Name="btnVlozitFilament" Content="Vložit Filament" Click="btnVlozitFilament_Click"></Button>
+
+            <Separator Margin="0,10,0,0" Height="3"></Separator>
+            <Label Content="Editovat Filament" Foreground="Orange"/>
+            <TextBox x:Name="tBoxNazevEditovat" TextWrapping="Wrap" Text="" Width="auto" Margin="5"/>
+            <Button x:Name="btnEditovatFilament" Content="Editovat Filament" Click="btnVlozitFilament_Click"></Button>
 
 
         </StackPanel>
-        <ListView x:Name="lsvFilamenty" Grid.Column="1" SelectionMode="Single">
+        <ListView x:Name="lsvFilamenty" Grid.Column="1" SelectionMode="Single" SelectionChanged="lsvFilamenty_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Id" Width="300" DisplayMemberBinding="{Binding id}"/>

@@ -91,5 +91,14 @@ namespace WpfDbsMazani
                 ZobrazData();
             }
         }
+
+        private void lsvFilamenty_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(lsvFilamenty.SelectedItem != null)
+            {
+                Filamenty filament = (Filamenty)lsvFilamenty.SelectedItem;
+                tBoxNazevEditovat.Text = filament.nazev;
+            }
+        }
     }
 }
