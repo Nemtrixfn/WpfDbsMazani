@@ -13,6 +13,11 @@
         </Grid.ColumnDefinitions>
         <StackPanel>
             <Button x:Name="Smazat1" Content="Smazat" Click="Smazat1_Click"/>
+            <Separator Margin="0,10,0,0" Height="3"></Separator>
+            <Label Content="Název filamentu"/>
+            <TextBox x:Name="tBoxNazev" TextWrapping="Wrap" Text="Fil" Width="auto" Margin="5"/>
+            <Button x:Name="btnVlozitFilament" Content="Vložit Filament"></Button> 
+
 
         </StackPanel>
         <ListView x:Name="lsvFilamenty" Grid.Column="1" SelectionMode="Single">
