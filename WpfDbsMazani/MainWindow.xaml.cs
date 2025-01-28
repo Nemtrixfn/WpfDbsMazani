@@ -56,8 +56,10 @@ namespace WpfDbsMazani
                 Filamenty filament = (Filamenty)lsvFilamenty.SelectedItem;
                 if (MessageBox.Show($"Chcete smazat položku {filament}?","Mazání dat",MessageBoxButton.YesNo,MessageBoxImage.Warning) == MessageBoxResult.Yes)
                 {
-                    using (SqlCommand cmd = new SqlCommand($"DELETE FROM filamenty WHERE id={filament.id}", conn))
+                    using (SqlCommand cmd = new SqlCommand("", conn))
                     {
+                        cmd.CommandText = "DELETE FROM filamenty WHERE id= (@nazev)";
+                        cmd.Parameters.AddWithValue("@nazev", filament.id);
                         conn.Open();
                         cmd.ExecuteNonQuery();
                         conn.Close();
@@ -74,6 +76,19 @@ namespace WpfDbsMazani
             else
             {
                 MessageBox.Show("Vyberte položku ke smazání");
+            }
+        }
+
+        private void btnVlozitFilament_Click(object sender, RoutedEventArgs e)
+        {
+            using(SqlCommand cmd = new SqlCommand("",conn))
+            {
+                cmd.CommandText = "INSERT INTO filamenty (nazev) values (@nazev)";
+                cmd.Parameters.AddWithValue("@nazev", tBoxNazev.Text);
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                ZobrazData();
             }
         }
     }
